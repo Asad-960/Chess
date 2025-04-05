@@ -1,0 +1,17 @@
+D:\Neil\Chess\Persistence\bin\Debug\net9.0\Persistence.deps.json
+D:\Neil\Chess\Persistence\bin\Debug\net9.0\Persistence.runtimeconfig.json
+D:\Neil\Chess\Persistence\bin\Debug\net9.0\Persistence.dll
+D:\Neil\Chess\Persistence\bin\Debug\net9.0\Persistence.pdb
+D:\Neil\Chess\Persistence\bin\Debug\net9.0\Domain.dll
+D:\Neil\Chess\Persistence\bin\Debug\net9.0\Domain.pdb
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.csproj.AssemblyReference.cache
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.AssemblyInfoInputs.cache
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.AssemblyInfo.cs
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.csproj.CoreCompileInputs.cache
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persiste.61C28332.Up2Date
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.dll
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\refint\Persistence.dll
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.pdb
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.genruntimeconfig.cache
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\ref\Persistence.dll
