@@ -15,7 +15,7 @@ namespace Application.Chess.Moves
             string move = "";
             if (IsCastling)
             {
-                if (From.Contains('8') || To.Contains('8'))
+                if (From.Contains('a') || To.Contains('a'))
                     move += "O-O-O";
                 else
                     move += "O-O";
