@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import pieces from "../../utils/pieces";
 import { useEffect, useState } from "react";
-import {useBoard} from "../../../lib/hooks/useBoard";
 import FinalPopUp from "./FinalPopUp";
 import { useChessSounds } from '../../utils/sounds'
-import { pieceMovements } from "./PieceMovements";
-import { defaultBoard } from "./InitialBoard";
+import { PieceMovements } from "./PieceMovements";
+import { defaultBoard } from "./BoardProfile";
 import WhiteProfile from "./WhiteProfile";
 import BlackProfile from "./BlackProfile";
+// import { useLocation } from "react-router";
+import { useBoard } from "../../../lib/hooks/useBoard";
 
 type Props = {
   setWhiteMoves: React.Dispatch<React.SetStateAction<string[]>>;
@@ -17,16 +18,29 @@ type Props = {
 export default function Board({setWhiteMoves, setBlackMoves}: Props) {
 
     const {initialBoard, rowAlphabets, colNumbering} = defaultBoard();
-    const { playTenSeconds, playSound, playIllegal } = useChessSounds();
+    const { playTenSeconds } = useChessSounds();
     const [whiteTime, setWhiteTime] = useState(60 * 10);
     const [blackTime, setBlackTime] = useState(60 * 10);
     const [winner, setWinner] = useState("");
     const [board, setBoard] = useState<(string | null)[][]>(initialBoard);
     const [turn, setTurn] = useState("White");
-    const { CheckValid } = useBoard();
     
+    const { StartGame } = useBoard();
+    const [gameId, setGameId] = useState("");
     
+    useEffect(() => {
+      StartGame.mutate(undefined, {
+        onSuccess: (data) => {
+          setGameId(data);
+        },
+        onError: (error) => {
+          console.error("Error starting game:", error);
+        }
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); 
 
+    
     useEffect(() => {
       if (winner != '') return;
       if (whiteTime === 0)
@@ -52,13 +66,16 @@ export default function Board({setWhiteMoves, setBlackMoves}: Props) {
       return () => clearInterval(interval);
     }, [whiteTime, blackTime, turn, playTenSeconds, winner])
     
-
+    
+    const time = turn === "White" ? whiteTime : blackTime;
+    
+    
     const {handleDragOver, handleDragStart, handleDrop} = 
-    pieceMovements(
+    PieceMovements(
       {
         board, winner, rowAlphabets, colNumbering, turn,
         setWinner, setBoard, setTurn, setWhiteMoves, setBlackMoves,
-        playSound, playIllegal, CheckValid
+        gameId, time
       });
     
   return (  
@@ -70,7 +87,7 @@ export default function Board({setWhiteMoves, setBlackMoves}: Props) {
               {row.map((symbol, cindex) => (            
                 <Column 
                     key={`[${rindex}][${cindex}]`} 
-                    onDrop={(e) => handleDrop(e, rindex, cindex)} 
+                    onDrop={(e) => handleDrop(e, rindex, cindex, symbol)} 
                     onDragOver={handleDragOver}
                     onDragStart={(e) => handleDragStart(e, rindex, cindex, symbol)}
                 >

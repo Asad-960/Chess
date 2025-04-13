@@ -17,7 +17,8 @@ namespace Persistence
                     {
                         "e4", "e5", "Qh5", "Nc6", "Bc4", "Nf6", "Qxf7#"
                     },
-                    Time = DateTime.Now.AddMonths(-1)
+                    Date = DateTime.Now.AddMonths(-1),
+                    MovesPlayed = 7
                 }, // Fool's Mate
                 new()
                 {
@@ -29,7 +30,7 @@ namespace Persistence
                         "Bg5", "b5", "Nxb5", "cxb5", "Bxb5+", "Nbd7", "O-O-O", "Rd8", "Rxd7", "Rxd7", "Rd1", "Qd8", "Bxd7+", "Qxd7",
                         "Rxd7", "Kxd7", "Bxf6", "gxf6", "Qxf6", "Rg8", "Qxf7+", "Kd8", "Rd1+", "Kc8", "Qd7#",
                     },
-                    Time = DateTime.Now.AddMonths(1)
+                    Date = DateTime.Now.AddMonths(1)
                 }, // Legal's Mate
                 new()
                 {
@@ -46,7 +47,7 @@ namespace Persistence
                         "Kf7", "Kh6", "Bc2", "b4", "Ke6", "b5", "Kd7", "b6", "Kc8", "a4", "Kb7", "a5", "Ka6", "b7", "Ka5", "b8=Q",
                         "Ka4", "Qb2#",
                     },
-                    Time = DateTime.Now.AddMonths(2)
+                    Date = DateTime.Now.AddMonths(2)
                 }, // Ruy Lopez Checkmate
                 new()
                 {
@@ -56,7 +57,7 @@ namespace Persistence
                     {
                         "f3", "e5", "g4", "Qh4#"
                     },
-                    Time = DateTime.Now.AddMonths(3)
+                    Date = DateTime.Now.AddMonths(3)
                 }, // Fool's Mate
                 new()
                 {
@@ -70,7 +71,7 @@ namespace Persistence
                         "f3", "Bd5", "Rd1", "Be6", "c3", "b5", "b4", "Kf8", "Kf2", "a5", "a3", "axb4", "axb4", "Ra2+", "Kg3", "Rc2",
                         "Rd3", "Ke8", "Ra7", "f4+", "Kxf4", "Bd8", "h4", "Rxg2", "Ra8", "Rh2", "Rexd8+", "Ke7", "Re8+", "Kd7", "Rad8#"
                     },
-                    Time = DateTime.Now.AddMonths(4)
+                    Date = DateTime.Now.AddMonths(4)
                 } // French Defense Checkmate
             };
         

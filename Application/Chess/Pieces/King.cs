@@ -1,3 +1,4 @@
+using Application.Chess.Game;
 using Application.Chess.Moves;
 
 namespace Application.Chess.Pieces
@@ -30,14 +31,14 @@ namespace Application.Chess.Pieces
 
                 if (Math.Abs(X0) <= 1 && Math.Abs(Y0) <= 1)
                 {
-                    if (isKingAdjacent(end, opponentsKing)) return false;
+                    if (IsKingAdjacent(end, opponentsKing)) return false;
                     return true;
                 }
             }
             return false;
         }
 
-        static bool isKingAdjacent(Position k1, Position k2)
+        static bool IsKingAdjacent(Position k1, Position k2)
         {
             return !(Math.Abs(k1.X - k2.X) > 1 || Math.Abs(k2.Y - k1.Y) > 1);
         }

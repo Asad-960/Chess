@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Application.Chess.Rules;
 
 namespace Application.Chess.Moves
 {
@@ -23,6 +24,9 @@ namespace Application.Chess.Moves
     }
     public class MoveData
     {
+        [JsonPropertyName("id")]
+        public required string Id { get; set; }
+        
         [JsonPropertyName("start")]
         public required Position Start { get; set; }
 
@@ -40,6 +44,14 @@ namespace Application.Chess.Moves
         
         [JsonPropertyName("to")]
         public required string To{get; set;}
+        
+        [JsonPropertyName("turn")]
+        public required string Turn{get; set;}
 
+        [JsonPropertyName("castlingRights")]
+        public required CastlingRights CanCastle {get; set;}
+
+        [JsonPropertyName("time")]
+        public required int Time {get; set;}
     }
 }

@@ -4,8 +4,9 @@ import styled from "styled-components"
 
 export default function Home() {
   const navigate = useNavigate();
+  
   const handleStartGame = () => {
-      navigate('/game');
+    navigate('/game')
   };
   return (
     <Wrapper>

@@ -3,6 +3,7 @@ import agent from '../api/agent';
 
 
 export const useBoard = () => {
+    
     const queryClient = useQueryClient();
 
     const CheckValid = useMutation({
@@ -23,8 +24,14 @@ export const useBoard = () => {
         }
     })
 
+    const StartGame = useMutation({
+        mutationFn: async() => {
+            const response = await agent.post('/game');
+            return response.data;
+        }
+    })
     return { 
-        CheckValid
+        CheckValid, StartGame
     }
 
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 
+
 type Props = {
     winner: string
 }
@@ -9,10 +10,13 @@ type Props = {
 export default function FinalPopUp({winner}: Props) {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+  
 
   const handlePlayAgain = () => {
-    navigate('/game');
-    window.location.reload();
+    
+        window.location.reload();
+        navigate('/game');
+      
   };
 
   return (

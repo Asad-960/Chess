@@ -1,16 +1,37 @@
 using Application.Chess.Moves;
 using Application.Chess.Pieces;
+using Application.Chess.Rules;
 
 namespace Application.Chess.Game
 {
     public class Board
     {
-        public static string? IsValidMove(Piece?[,] board, Position start, Position end, ChessMoves moveName)
+        public static string? IsValidMove(Piece?[,] board, Position start, Position end, ChessMoves moveName, CastlingRights CanCastle)
         {
             Piece? piece = board[start.X, start.Y];
-            if (piece == null || !piece.IsValidMove(start, end, board))
-                return null;
+            if (piece == null)  return null;
+            
+            moveName.IsCastling = Castle.IsCastle(piece.Color, board, start, end, CanCastle);
+            
+            if (moveName.IsCastling)
+            {
+                PieceColor opponentColor = piece.Color == PieceColor.White ? PieceColor.Black : PieceColor.White;
+                bool isOpponentKingOnCheck = IskingInCheck(opponentColor, board);
+                moveName.IsCheck = isOpponentKingOnCheck; 
+                if (isOpponentKingOnCheck)
+                {
+                    moveName.IsCheckmate = false;
+                    if (IsCheckmate(opponentColor, board))
+                    {
+                        moveName.IsCheckmate = true;
+                    }
+                }
+                return moveName.ToString();
+            }
 
+            if (!piece.IsValidMove(start, end, board)) return null;
+
+            
             moveName.IsCapture = board[end.X, end.Y] != null;
 
             board[end.X, end.Y] = piece;
@@ -39,7 +60,7 @@ namespace Application.Chess.Game
                 return null;
         }
 
-        private static bool IskingInCheck(PieceColor color, Piece?[,] board) 
+        public static bool IskingInCheck(PieceColor color, Piece?[,] board) 
         {
             Position? KingPosition = null;
             for (int i = 0; i < 8; i++)

@@ -15,3 +15,4 @@ D:\Neil\Chess\Persistence\obj\Debug\net9.0\refint\Persistence.dll
 D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.pdb
 D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.genruntimeconfig.cache
 D:\Neil\Chess\Persistence\obj\Debug\net9.0\ref\Persistence.dll
+D:\Neil\Chess\Persistence\obj\Debug\net9.0\Persistence.sourcelink.json

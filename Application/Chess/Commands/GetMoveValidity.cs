@@ -16,7 +16,7 @@ namespace Application.Chess.Commands
 
         public class Handler(DataContext context) : IRequestHandler<Command, string?>
         {
-            public Task<string?> Handle(Command request, CancellationToken cancellationToken)
+            public async Task<string?> Handle(Command request, CancellationToken cancellationToken)
             {
                 Piece?[,] boardArray = new Piece?[8, 8];
                 for (int i = 0; i < 8; i++)
@@ -42,9 +42,30 @@ namespace Application.Chess.Commands
                     }
                 }
                 var data = request.Data;
-                ChessMoves moveName = new(data.Symbol, data.From, data.To);
+                ChessMoves moveName = new(data.Symbol, data.From, data.To);                
                 
-                return Task.FromResult(Board.IsValidMove(boardArray, data.Start, data.End, moveName));
+                string? Message = Board.IsValidMove(boardArray, data.Start, data.End, moveName, data.CanCastle);
+                System.Console.WriteLine("Time is " + data.Time);
+                var game = await context.Games.FindAsync([data.Id], cancellationToken: cancellationToken);
+                if (game != null && Message != null)
+                {
+                    game.MovesPlayed += 1;
+                    game.Moves.Add(Message);
+                    if (data.Turn == "White") {
+                        game.MovesTime.Add(game.RemainingTime[0] - data.Time);
+                        game.RemainingTime[0] = data.Time;
+                    } else {
+                        game.MovesTime.Add(game.RemainingTime[1] - data.Time);
+                        game.RemainingTime[1] = data.Time;
+                    }
+                    if (Message.Contains('#'))
+                    {
+                        game.Winner = data.Turn;
+                    }
+                }
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Message;
             }
         }
     }

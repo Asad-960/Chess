@@ -27,7 +27,7 @@ var services = scope.ServiceProvider;         // Get the service provider
 try
 {
     var context = services.GetRequiredService<DataContext>(); // Resolve DataContext
-    await context.Database.MigrateAsync();  // Apply migrations
+    await context.Database.MigrateAsync();  // Apply migrations // dotnet ef database update
     await DbInitializer.SeedData(context);  // Seed database
 }
 catch (Exception ex)

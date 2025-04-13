@@ -21,7 +21,6 @@ export default function Menu() {
 const Wrapper = styled.div`
     grid-area: Menu;
     background: hsl(45, 5%, 14%);
-  
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,12 +29,13 @@ const Wrapper = styled.div`
     {
       display: none;
     }
-  `;
+    `;
 
 const MenuButton = styled.button`
   background: none;
-  color: white;
-  font-weight: 500;
+  color: hsl(0, 0%, 100%);
+  
+  font-weight: 600;
   white-space: nowrap;
   padding: 10px 10px 10px 0px;
   border-radius: 10px;

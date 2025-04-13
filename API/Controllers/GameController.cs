@@ -14,12 +14,12 @@ namespace API.Controllers
         public async Task<string?> IsValid([FromBody]MoveData data)
         {
             return await Mediator.Send(new GetMoveValidity.Command {Data = data});
-            // Print results
-            
-            // System.Console.WriteLine("FEWFWEFW");
+        }
 
-
-            
+        [HttpPost("game")]
+        public async Task<string> StartGame()
+        {
+            return await Mediator.Send(new GetNewGame.Command {});
         }
 
     }

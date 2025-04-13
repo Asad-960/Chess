@@ -22,7 +22,18 @@ namespace Persistence.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
                     b.PrimitiveCollection<string>("Moves")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MovesPlayed")
+                        .HasColumnType("INTEGER");
+
+                    b.PrimitiveCollection<string>("MovesTime")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Player1")
@@ -31,7 +42,8 @@ namespace Persistence.Migrations
                     b.Property<string>("Player2")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Time")
+                    b.PrimitiveCollection<string>("RemainingTime")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Winner")

@@ -13,6 +13,14 @@ namespace Application.Chess.Moves
         public override string ToString()
         {
             string move = "";
+            if (IsCastling)
+            {
+                if (From.Contains('8') || To.Contains('8'))
+                    move += "O-O-O";
+                else
+                    move += "O-O";
+                return move.ToString();
+            }
             if (!Symbol.Equals("p", StringComparison.CurrentCultureIgnoreCase))
             {
                 move += Symbol.ToUpper();
