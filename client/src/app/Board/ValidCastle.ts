@@ -40,16 +40,17 @@ export function updateCastlingRight({sourceSymbol, destinationSymbol, turn, setC
           return prev;
         })
       }
-    }
-    if (fromCol == 7 || toCol == 7)
-    {
-        if (turn === 'White') setCastlingRights(prev => {
-            prev.white.rookKingSideMoved = true;
-          return prev;
-        })
-        if (turn === 'Black') setCastlingRights(prev => {
-          prev.black.rookKingSideMoved = true;
-          return prev;
-        })
+    
+      if (fromCol == 7 || toCol == 7)
+      {
+          if (turn === 'White') setCastlingRights(prev => {
+              prev.white.rookKingSideMoved = true;
+            return prev;
+          })
+          if (turn === 'Black') setCastlingRights(prev => {
+            prev.black.rookKingSideMoved = true;
+            return prev;
+          })
+      }
     }
 }

@@ -86,6 +86,7 @@ export const PieceMovements = ({board, winner,
           
           updateCastlingRight({sourceSymbol, destinationSymbol, turn, setCastlingRights, fromCol, toCol});
           
+          
           if (response.includes("#"))
           {
             setWinner(turn);
