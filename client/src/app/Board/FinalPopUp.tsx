@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-
+import cup from "/images/cup.svg";
 
 type Props = {
     winner: string
@@ -15,7 +15,7 @@ export default function FinalPopUp({winner}: Props) {
   const handlePlayAgain = () => {
     
         window.location.reload();
-        navigate('/game');
+        navigate('/');
       
   };
 
@@ -28,7 +28,7 @@ export default function FinalPopUp({winner}: Props) {
             <Cross type="submit" onClick={() => setShow(!show)}>
               <svg viewBox="0 0 32 32" height="28.75" width="28.75" aria-hidden="true" data-glyph="mark-cross" xmlns="http://www.w3.org/2000/svg"><path xmlns="http://www.w3.org/2000/svg" d="m10.1 24.667 5.933-5.834L21.8 24.7c1.167 1.2 1.633 1.2 2.833.033 1.167-1.166 1.167-1.633 0-2.833L18.867 16l5.9-5.9c1.2-1.167 1.2-1.633 0-2.8-1.167-1.2-1.634-1.2-2.8 0l-5.934 5.867-5.9-5.934C8.967 6.033 8.5 6.033 7.3 7.2c-1.167 1.2-1.167 1.667 0 2.833L13.2 16l-5.9 5.867c-1.2 1.166-1.2 1.633-.033 2.8 1.2 1.2 1.666 1.2 2.833 0"></path></svg>
             </Cross>
-            <Cup src="./public/images/cup.svg"/>
+            <Cup src={cup}/>
             <h3>{winner} Won!</h3>
             <ReviewButton >
                 <ReviewSpan>Game Review</ReviewSpan>
@@ -49,6 +49,7 @@ export default function FinalPopUp({winner}: Props) {
 interface WrapperProps {
     $show: boolean;
 }
+
 const TableRow = styled.tr`
   padding: 0;
   margin: 0;

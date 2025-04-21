@@ -3299,11 +3299,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Neil\\Chess\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Neil\\Chess\\API\\API.csproj",
+      "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\API\\API.csproj",
       "packagesPath": "C:\\Users\\asadu\\.nuget\\packages\\",
-      "outputPath": "D:\\Neil\\Chess\\API\\obj\\",
+      "outputPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\asadu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3318,8 +3318,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Neil\\Chess\\Application\\Application.csproj": {
-              "projectPath": "D:\\Neil\\Chess\\Application\\Application.csproj"
+            "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Application\\Application.csproj"
             }
           }
         }

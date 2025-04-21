@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Neil\\Chess\\Persistence\\Persistence.csproj": {}
+    "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "D:\\Neil\\Chess\\Domain\\Domain.csproj": {
+    "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Neil\\Chess\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Neil\\Chess\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\asadu\\.nuget\\packages\\",
-        "outputPath": "D:\\Neil\\Chess\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\asadu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\Neil\\Chess\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Neil\\Chess\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "D:\\Neil\\Chess\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\asadu\\.nuget\\packages\\",
-        "outputPath": "D:\\Neil\\Chess\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\asadu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -85,8 +85,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Neil\\Chess\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\Neil\\Chess\\Domain\\Domain.csproj"
+              "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj"
               }
             }
           }

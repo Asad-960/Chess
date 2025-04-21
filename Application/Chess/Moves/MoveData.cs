@@ -32,12 +32,6 @@ namespace Application.Chess.Moves
 
         [JsonPropertyName("end")]
         public required Position End { get; set; }
-
-        [JsonPropertyName("symbol")]
-        public required string Symbol { get; set; }
-
-        [JsonPropertyName("board")]
-        public required string[][] Board{get; set;}
         
         [JsonPropertyName("from")]
         public required string From{get; set;}
@@ -45,12 +39,6 @@ namespace Application.Chess.Moves
         [JsonPropertyName("to")]
         public required string To{get; set;}
         
-        [JsonPropertyName("turn")]
-        public required string Turn{get; set;}
-
-        [JsonPropertyName("castlingRights")]
-        public required CastlingRights CanCastle {get; set;}
-
         [JsonPropertyName("time")]
         public required int Time {get; set;}
     }

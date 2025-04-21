@@ -1,13 +1,24 @@
 import { useNavigate } from "react-router";
 import styled from "styled-components"
+import { useBoard } from "../../lib/hooks/useBoard";
 
 
 export default function Home() {
   const navigate = useNavigate();
+  const { CreateGame } = useBoard();
   
   const handleStartGame = () => {
-    navigate('/game')
+    CreateGame.mutate(undefined, {
+      onSuccess: (data: ChessGame) => {
+        console.log(data.id);
+        navigate(`/game/${data.id}`, { state: {board: data.board } });
+      },
+      onError: (error) => {
+        throw new Error("Error creating game: " + error.message);
+      }
+    });
   };
+  
   return (
     <Wrapper>
         <Heading1>Welcome to Chess</Heading1>

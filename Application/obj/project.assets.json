@@ -3216,11 +3216,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Neil\\Chess\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\Neil\\Chess\\Application\\Application.csproj",
+      "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\asadu\\.nuget\\packages\\",
-      "outputPath": "D:\\Neil\\Chess\\Application\\obj\\",
+      "outputPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\asadu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3235,11 +3235,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\Neil\\Chess\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Neil\\Chess\\Domain\\Domain.csproj"
+            "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Domain\\Domain.csproj"
             },
-            "D:\\Neil\\Chess\\Persistence\\Persistence.csproj": {
-              "projectPath": "D:\\Neil\\Chess\\Persistence\\Persistence.csproj"
+            "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\asadu\\OneDrive\\Desktop\\Chess\\Persistence\\Persistence.csproj"
             }
           }
         }

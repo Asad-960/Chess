@@ -9,7 +9,7 @@ namespace Application.Chess.Commands
     {
         public class Command:IRequest<string>
         {
-
+            public Guid Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, string>
@@ -24,12 +24,13 @@ namespace Application.Chess.Commands
             {
                 ChessGame chessGame = new()
                 {
+                    Id = request.Id.ToString(),
                     Date = DateTime.UtcNow,
                     Player1 = "White",
                     Player2 = "Black"
                 };
                 await _dataContext.Games.AddAsync(chessGame, cancellationToken);
-                await _dataContext.SaveChangesAsync();
+                await _dataContext.SaveChangesAsync(cancellationToken);
 
                 return await Task.FromResult(chessGame.Id);
             }
