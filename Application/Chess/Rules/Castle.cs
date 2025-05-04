@@ -1,5 +1,5 @@
+using Application.Chess.Data;
 using Application.Chess.Game;
-using Application.Chess.Moves;
 using Application.Chess.Pieces;
 
 namespace Application.Chess.Rules
@@ -50,7 +50,7 @@ namespace Application.Chess.Rules
                 }
                 board[rook.X, y] = board[king.X, king.Y];
                 board[king.X, king.Y] = null;
-                if (Board.IskingInCheck(color, board))
+                if (Check.IsCheck(color, board))
                 {
                     return false;
                 }

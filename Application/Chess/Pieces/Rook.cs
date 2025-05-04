@@ -1,4 +1,4 @@
-using Application.Chess.Moves;
+using Application.Chess.Data;
 
 namespace Application.Chess.Pieces
 {
@@ -16,6 +16,10 @@ namespace Application.Chess.Pieces
         }
         public override bool IsValidMove(Position start, Position end, Piece?[,] board)
         {           
+            if (!IsValidRange(start, end))
+            {
+                return false;
+            }
             if ( board[end.X, end.Y]?.Color != this.Color )
             {
                 if (start.Y == end.Y)

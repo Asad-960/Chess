@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Models;
-using Application.Chess.Moves;
+using Application.Chess.Data;
 
 namespace API.Services
 {

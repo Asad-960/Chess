@@ -1,7 +1,8 @@
 using API.Models;
 using API.Services;
 using Application.Chess.Commands;
-using Application.Chess.Moves;
+using Application.Chess.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -33,7 +34,12 @@ namespace API.Controllers
         {
             GameModel game = _gameService.GetGame(new Guid(id)) ?? throw new Exception("Game not found.");
             List<List<string>> board = game.Board;
-            _clock.StartTimer();
+            if (string.IsNullOrWhiteSpace(game.Winner))
+            {
+               _clock.StartTimer();
+            } else {
+                _clock.StopTimers();
+            }
             return Ok(
                 new 
                 {
@@ -42,11 +48,11 @@ namespace API.Controllers
                     BlackClock = _clock.BlackTime,
                     game.CurrentPlayer,
                     game.Winner
-                    });
+                });
         }
         
         [HttpPut("checkthenupdate")]
-        public async Task<IActionResult> CheckValidity([FromBody]MoveData data)
+        public async Task<IActionResult> CheckValidity([FromBody]MoveDto data)
         {
             GameModel game = _gameService.GetGame(new Guid(data.Id)) ?? throw new Exception("Game not found.");
             
@@ -72,16 +78,17 @@ namespace API.Controllers
             game.UpdateCastlingStatus(data.Start, data.End, sourceSymbol, destinationSymbol);
             List<List<string>> board = _gameService.MakeMove(new Guid(data.Id), data.Start, data.End, Message);            
             game.Board = board;
+            
             game.CurrentPlayer = game.CurrentPlayer == "White" ? "Black" : "White";
             _gameService.UpdateGame(game.Id, game);
             
             _clock.CurrentTurn = game.CurrentPlayer;
             _clock.StartTimer();
-            if (game.Winner != "")
+            if (!string.IsNullOrWhiteSpace(game.Winner))
             {
+                System.Console.WriteLine("Game ended, stopping timers.");
                 _clock.StopTimers();
             }
-        
             return Ok(new { Move = Message, Game = game});
         }
     }

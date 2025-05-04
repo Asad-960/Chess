@@ -1,26 +1,18 @@
-using API.Services;
-using Application.Chess.Commands;
+using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddSingleton<IChessGameService, ChessGameService>();
-builder.Services.AddSingleton<ChessClockService>();
-builder.Services.AddDbContext<DataContext>(option => 
-{
-    option.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining<GetMoveValidity.Handler>());
-builder.Services.AddCors();
+builder.Services.AddApplicationService(builder.Configuration);
 
 var app = builder.Build();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+    .WithOrigins("http://localhost:3000", "https://localhost:3000"));
 
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
-    .WithOrigins("http://localhost:3000", "http://localhost:3000"));
+app.UseAuthentication();
+app.UseAuthorization();
 
 
 using var scope = app.Services.CreateScope();  // Creates a DI scope

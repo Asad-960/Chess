@@ -1,4 +1,4 @@
-using Application.Chess.Moves;
+using Application.Chess.Data;
 
 namespace Application.Chess.Pieces
 {
@@ -14,6 +14,11 @@ namespace Application.Chess.Pieces
         }
         public override bool IsValidMove(Position start, Position end, Piece?[,] board)
         {
+            if (!IsValidRange(start, end))
+            {
+                return false;
+            }
+            
             int dx = end.X - start.X;
             int dy = end.Y - start.Y;
             if (Math.Abs(dx) == 2 && Math.Abs(dy) == 1 || (Math.Abs(dx) == 1 && Math.Abs(dy) == 2))

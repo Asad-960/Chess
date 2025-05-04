@@ -1,5 +1,5 @@
 using API.Models;
-using Application.Chess.Moves;
+using Application.Chess.Data;
 
 namespace API.Services
 {
@@ -48,6 +48,10 @@ namespace API.Services
                 }
                 if (MoveName.Contains("#")){
                     game.Winner = game.CurrentPlayer;;
+                }
+                else if (MoveName.Contains("½–½"))
+                {
+                    game.Winner = "Draw";
                 }
                 game.FEN.Add(MoveName);
                 return game.Board;

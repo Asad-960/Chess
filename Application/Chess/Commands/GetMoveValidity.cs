@@ -2,9 +2,8 @@ using MediatR;
 
 using Persistence;
 using Application.Chess.Pieces;
-using Application.Chess.Moves;
 using Application.Chess.Game;
-using Application.Chess.Rules;
+using Application.Chess.Data;
 namespace Application.Chess.Commands
 {
     public class GetMoveValidity
@@ -12,7 +11,7 @@ namespace Application.Chess.Commands
         
         public class Command: IRequest<string?>
         {
-            public required MoveData Data {get; set;}
+            public required MoveDto Data {get; set;}
             public required List<List<string>> Board { get; set; }
             public required string CurrentPlayer { get; set; }
             public required CastlingRights CastlingOptions { get; set; }
@@ -51,7 +50,7 @@ namespace Application.Chess.Commands
                     return null;
                 }
                 
-                ChessMoves moveName = new(request.Board[data.Start.X][data.Start.Y], data.From, data.To);                
+                MovesNotation moveName = new(request.Board[data.Start.X][data.Start.Y], data.From, data.To);                
                 
                 string? Message = Board.IsValidMove(boardArray, data.Start, data.End, moveName, request.CastlingOptions);
                 

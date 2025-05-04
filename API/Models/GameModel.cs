@@ -1,4 +1,4 @@
-using Application.Chess.Moves;
+using Application.Chess.Data;
 using Application.Chess.Rules;
 
 namespace API.Models
@@ -16,9 +16,20 @@ namespace API.Models
             new() { "", "", "", "", "", "", "", "" },
             new() { "P", "P", "P", "P", "P", "P", "P", "P" },
             new() { "R", "N", "B", "Q", "K", "B", "N", "R" }
+            
+            // new() { "r", "n", "b", "q", "k", "b", "n", "r" },
+            // new() { "p", "p", "p", "p", "p", "p", "p", "p"},
+            // new() { "", "", "", "", "", "", "", "" },
+            // new() { "", "", "", "", "", "", "", "" },
+            // new() { "", "", "", "", "", "", "", "" },
+            // new() { "", "", "", "", "", "", "", "" },
+            // new() { "P", "P", "P", "P", "P", "P", "P", "P" },
+            // new() { "R", "N", "B", "Q", "K", "B", "N", "R" }
+            
+
         };
-        public int WhiteTime { get; set; } = 60 * 100;
-        public int BlackTime { get; set; } = 60 * 100;
+        public int WhiteTime { get; set; } = 60 * 10;
+        public int BlackTime { get; set; } = 60 * 10;
         public List<string> FEN { get; set; } = [];
         public string CurrentPlayer { get; set; } = "White";
         public string? Winner { get; set; } = null;  

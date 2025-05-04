@@ -1,13 +1,14 @@
 import useSound from 'use-sound'
-import moveSound from '../../assets/sounds/move-self.mp3'
-import captureSound from '../../assets/sounds/capture.mp3'
-import checkSound from '../../assets/sounds/move-check.mp3'
-import endSound from '../../assets/sounds/game-end.webm'
-import castleSound from '../../assets/sounds/castle.mp3'
-// import promoteSound from '../../assets/sounds/promote.mp3'
-// import startSound from '../../assets/sounds/game-start.webm'
-import illegalSound from '../../assets/sounds/illegal.webm'
-import tenSeconds from '../../assets/sounds/tenseconds.webm'
+import moveSound from '/sounds/move-self.mp3'
+// import moveSound from '../../public/sounds/move-self.mp3'
+import captureSound from '/sounds/capture.mp3'
+import checkSound from '/sounds/move-check.mp3'
+import endSound from '/sounds/game-end.webm'
+import castleSound from '/sounds/castle.mp3'
+// import promoteSound from '/sounds/promote.mp3'
+// import startSound from '/sounds/game-start.webm'
+import illegalSound from '/sounds/illegal.webm'
+import tenSeconds from '/sounds/tenseconds.webm'
 
 
 export const useChessSounds = () => {

@@ -1,5 +1,5 @@
+using Application.Chess.Data;
 using Application.Chess.Game;
-using Application.Chess.Moves;
 
 namespace Application.Chess.Pieces
 {
@@ -7,6 +7,10 @@ namespace Application.Chess.Pieces
     {
         public override bool IsValidMove(Position start, Position end, Piece?[,] board)
         {
+            if (!IsValidRange(start, end))
+            {
+                return false;
+            }
             Piece? piece  = board[start.X, start.Y];
             if (piece  == null) return false;
             Position? opponentsKing = null;

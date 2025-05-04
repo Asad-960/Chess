@@ -174,6 +174,9 @@ C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\AutoMapper.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Humanizer.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\MediatR.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\MediatR.Contracts.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -195,6 +198,8 @@ C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
@@ -326,3 +331,11 @@ C:\Users\asadu\OneDrive\Desktop\Chess\API\obj\Debug\net9.0\refint\API.dll
 C:\Users\asadu\OneDrive\Desktop\Chess\API\obj\Debug\net9.0\API.pdb
 C:\Users\asadu\OneDrive\Desktop\Chess\API\obj\Debug\net9.0\API.genruntimeconfig.cache
 C:\Users\asadu\OneDrive\Desktop\Chess\API\obj\Debug\net9.0\ref\API.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\asadu\OneDrive\Desktop\Chess\API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

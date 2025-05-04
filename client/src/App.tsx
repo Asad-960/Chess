@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Board from "./app/Board/Board";
-import Menu from "./app/Menu/Menu";
-import GameLog from "./app/GameLog/GameLog";
 import { useState } from "react";
+import Menu from "./components/Menu/Menu";
+import Board from "./features/chess/Board/Board";
+import GameLog from "./components/GameLog/GameLog";
 
 const Chessboard = () => {
   

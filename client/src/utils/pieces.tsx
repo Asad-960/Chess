@@ -83,7 +83,6 @@ const pieces = {
 
 const Image = styled.img`
     transform: none;
-    opactity: 1;
     filter: none;
 /*       
   @media (max-width: 800px)  
