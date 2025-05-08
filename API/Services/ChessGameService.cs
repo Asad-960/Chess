@@ -73,20 +73,5 @@ namespace API.Services
             }
         }
 
-    //     public void MakeMoveFromFEN(Guid id, string fen)
-    //     {
-    //         GameModel game = GetGame(id);
-    //         if (game != null)
-    //         {
-    //             for (int i = 0; i < game.FEN.Count; i++)
-    //             {
-
-    //             }
-    //         }
-    //         else
-    //         {
-    //             throw new KeyNotFoundException("Game not found.");
-    //         }
-    // }
     }
 }

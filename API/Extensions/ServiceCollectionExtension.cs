@@ -22,13 +22,10 @@ public static class ServiceCollectionExtension
         services.AddSingleton<IChessGameService, ChessGameService>();
         services.AddSingleton<ChessClockService>();
         services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining<GetMoveValidity.Handler>());
-        
+        services.AddSingleton<WaitingPlayer>();
         services.AddCors();
-        
+        services.AddSignalR();
         services.AddTransient<IJwtService, JwtService>();
-        
-        
-            
 
         services
             .AddIdentity<ApplicationUser, ApplicationRole>(options => {

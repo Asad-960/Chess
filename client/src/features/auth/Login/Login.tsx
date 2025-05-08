@@ -17,6 +17,7 @@ const Login = () => {
             onSuccess: (response) => {
                 console.log(response);
                 localStorage.setItem("token", response.token);
+                localStorage.setItem("username", response.name);
                 navigation("/");
             },
             onError: (error) => {

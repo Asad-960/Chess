@@ -1,4 +1,5 @@
 using API.Extensions;
+using API.Hubs;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -30,7 +31,7 @@ catch (Exception ex)
     logger.LogError(ex, "Error");  
 }
 
-
 app.MapControllers();
+app.MapHub<GameHub>("/online");
 
 app.Run();

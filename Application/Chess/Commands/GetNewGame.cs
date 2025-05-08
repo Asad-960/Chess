@@ -10,6 +10,8 @@ namespace Application.Chess.Commands
         public class Command:IRequest<string>
         {
             public Guid Id { get; set; }
+            public string? White { get; set; }
+            public string? Black { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, string>
@@ -26,8 +28,8 @@ namespace Application.Chess.Commands
                 {
                     Id = request.Id.ToString(),
                     Date = DateTime.UtcNow,
-                    Player1 = "White",
-                    Player2 = "Black"
+                    Player1 = request.White ?? "White",
+                    Player2 = request.Black ?? "Black"
                 };
                 await _dataContext.Games.AddAsync(chessGame, cancellationToken);
                 await _dataContext.SaveChangesAsync(cancellationToken);

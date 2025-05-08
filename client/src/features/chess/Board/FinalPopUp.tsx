@@ -4,21 +4,28 @@ import styled from "styled-components";
 import cup from "/images/cup.svg";
 
 type Props = {
-    winner: string
+    winner: string,
+    isWhite: boolean | null,
+    opponent: string
 }
 
-export default function FinalPopUp({winner}: Props) {
+export default function FinalPopUp({winner, isWhite, opponent}: Props) {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  
+
 
   const handlePlayAgain = () => {
     navigate('/');
     window.location.reload();
       
   };
-  console.log(winner);
-  
+  const winnerName = winner === "Draw" 
+                    ? "Stalemate!" 
+                    : isWhite === null
+                    ? winner
+                    : isWhite === true && winner === "White"
+                    ? localStorage.getItem("username")
+                    : opponent;
   return (
     <>
       {winner.trim() !== "" && (
@@ -29,7 +36,8 @@ export default function FinalPopUp({winner}: Props) {
               <svg viewBox="0 0 32 32" height="28.75" width="28.75" aria-hidden="true" data-glyph="mark-cross" xmlns="http://www.w3.org/2000/svg"><path xmlns="http://www.w3.org/2000/svg" d="m10.1 24.667 5.933-5.834L21.8 24.7c1.167 1.2 1.633 1.2 2.833.033 1.167-1.166 1.167-1.633 0-2.833L18.867 16l5.9-5.9c1.2-1.167 1.2-1.633 0-2.8-1.167-1.2-1.634-1.2-2.8 0l-5.934 5.867-5.9-5.934C8.967 6.033 8.5 6.033 7.3 7.2c-1.167 1.2-1.167 1.667 0 2.833L13.2 16l-5.9 5.867c-1.2 1.166-1.2 1.633-.033 2.8 1.2 1.2 1.666 1.2 2.833 0"></path></svg>
             </Cross>
             <Cup src={cup}/>
-            <h3>{winner==="Draw" ? "Stalemate!" : winner + " Won!"}</h3>
+            <h3>{winnerName}</h3>
+            <h3>Won!</h3>
             <ReviewButton >
                 <ReviewSpan>Game Review</ReviewSpan>
             </ReviewButton>
@@ -92,7 +100,7 @@ const ReviewSpan = styled.span`
     line-height: 3.4rem;
 `;
 const ReviewButton = styled.button`
-    margin-top: 6rem;
+    margin-top: 4rem;
     border-radius: 10px;
     padding:0;
     width:90%;

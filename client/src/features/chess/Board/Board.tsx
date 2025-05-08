@@ -20,8 +20,12 @@ type GameState = {
   board: (string | null)[][]
 }
 export default function Board({setWhiteMoves, setBlackMoves}: Props) {
-
     const location = useLocation();
+    const [isWhite] = useState(location.state.isWhite);
+    
+    const [opponent] = useState(location.state.opponent);
+
+    const isOnline = location.state?.isOnline === true;
     const InitialState = location.state as GameState | null;
     const {gameId} = useParams();
     const { reloadedGame, isLoadingBoard } = useBoard(gameId);
@@ -40,7 +44,7 @@ export default function Board({setWhiteMoves, setBlackMoves}: Props) {
       {
         winner, rowAlphabets, colNumbering, turn,
         setWinner, setBoard, setTurn, setWhiteMoves, setBlackMoves,
-        gameId, time
+        gameId, time, isOnline, isWhite
       });
 
     if (InitialState == null || gameId == null)
@@ -54,14 +58,24 @@ export default function Board({setWhiteMoves, setBlackMoves}: Props) {
       const navEntries = performance.getEntriesByType("navigation");
       if (navEntries.length > 0 && (navEntries[0] as PerformanceNavigationTiming).type === "reload" && !isLoadingBoard)
       {
-          console.log(reloadedGame);
           if (reloadedGame)
-          {
+          { 
             setTurn(reloadedGame.currentPlayer);
             setWinner(reloadedGame.winner == null ? "" : reloadedGame.winner);
             setBoard(reloadedGame?.board || null);
             setWhiteTime(reloadedGame.whiteClock);
             setBlackTime(reloadedGame.blackClock);
+            console.log("Original FEN:", reloadedGame.fen);
+
+            const White = reloadedGame.fen.filter((_, index) => index % 2 === 0);
+            const Black = reloadedGame.fen.filter((_, index) => index % 2 !== 0);
+                      
+            console.log("White Moves:", White); // should log ["e4", "f3"]
+            console.log("Black Moves:", Black); // should log ["e5", "d6"]
+                      
+            setWhiteMoves(White);
+            setBlackMoves(Black);
+
           }
       }
     }, [reloadedGame?.board, isLoadingBoard]);
@@ -120,7 +134,7 @@ export default function Board({setWhiteMoves, setBlackMoves}: Props) {
         </BoardBody>  
         <WhiteProfile turn={turn} time={whiteTime}/>
 
-        <FinalPopUp winner={winner}/>      
+        <FinalPopUp winner={winner} isWhite={isWhite} opponent={opponent}/>      
     </Wrapper>
   )
 }

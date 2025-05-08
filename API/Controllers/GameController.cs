@@ -2,7 +2,6 @@ using API.Models;
 using API.Services;
 using Application.Chess.Commands;
 using Application.Chess.Data;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -47,7 +46,8 @@ namespace API.Controllers
                     WhiteClock = _clock.WhiteTime,
                     BlackClock = _clock.BlackTime,
                     game.CurrentPlayer,
-                    game.Winner
+                    game.Winner,
+                    game.FEN
                 });
         }
         
@@ -86,7 +86,6 @@ namespace API.Controllers
             _clock.StartTimer();
             if (!string.IsNullOrWhiteSpace(game.Winner))
             {
-                System.Console.WriteLine("Game ended, stopping timers.");
                 _clock.StopTimers();
             }
             return Ok(new { Move = Message, Game = game});

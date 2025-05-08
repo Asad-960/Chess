@@ -19,6 +19,7 @@ const Register = () => {
       onSuccess: (response) => {
         console.log(response);
         localStorage.setItem("token", response.token);
+        localStorage.setItem("username", response.name);
         navigate("/");
       },
       onError: (error) => {

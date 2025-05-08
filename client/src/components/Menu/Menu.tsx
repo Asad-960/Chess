@@ -11,12 +11,12 @@ export default function Menu() {
   return (
     <Wrapper>
     <div>
-      <MenuButton>♟️ Play</MenuButton>
+      {/* <MenuButton>♟️ Play</MenuButton>
       <MenuButton>🧩 Puzzles</MenuButton>
       <MenuButton>🎓 Learn</MenuButton>
       <MenuButton>🔭 Watch</MenuButton>
       <MenuButton>📰 News</MenuButton>
-      <MenuButton>👥 Social</MenuButton>
+      <MenuButton>👥 Social</MenuButton> */}
     </div>
     <div>
       {!localStorage["token"] ? 
@@ -44,17 +44,17 @@ const Wrapper = styled.div`
     }
     `;
 
-const MenuButton = styled.button`
-  background: none;
-  color: hsl(0, 0%, 100%);
-  cursor: pointer;
-  font-weight: 600;
-  white-space: nowrap;
-  padding: 10px 10px 10px 0px;
-  border-radius: 10px;
-  width: 6rem;
-  margin: 0px 5px 10px 3px;
-  `
+// const MenuButton = styled.button`
+//   background: none;
+//   color: hsl(0, 0%, 100%);
+//   cursor: pointer;
+//   font-weight: 600;
+//   white-space: nowrap;
+//   padding: 10px 10px 10px 0px;
+//   border-radius: 10px;
+//   width: 6rem;
+//   margin: 0px 5px 10px 3px;
+  // `
 const RegisterButton = styled.button`
   background: hsl(90, 42%, 51%);
   color: white;

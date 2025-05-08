@@ -13,9 +13,9 @@ export default function GameLog({whiteMoves, blackMoves}: GameLogProps) {
       <Table >
         <Tablebody >
         {whiteMoves.map((move: string, index: number) => (
-          index > 0 && (
-            <TableRow key={index}>
-              <MoveNumber>{index + "."}</MoveNumber>
+          (
+            <TableRow key={index + 1}>
+              <MoveNumber>{index + 1 + "."}</MoveNumber>
               <WhiteData>
                 {move}
                 </WhiteData>

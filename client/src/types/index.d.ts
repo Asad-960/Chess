@@ -18,6 +18,7 @@ type ReloadedGame = {
     blackClock: number;
     currentPlayer: string;
     winner: string;
+    fen: string[];
 };
 type Login = {
     email: string;

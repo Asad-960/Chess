@@ -1,23 +1,59 @@
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { useBoard } from "../../hooks/useBoard";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import WaitingRoom from "../../features/chess/WaitingRoom/WaitingRoom";
+// import { HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
+import { useSignalR } from "../../context/SignalRContext";
 
 export default function Home() {
   const navigate = useNavigate();
   const { CreateGame } = useBoard();
+  const [onlineGame, setOnlineGame] = useState(false);
+  const conn = useSignalR();
 
-  const handleStartGame = () => {
+  const createPassAndPlayGame = () => {
     CreateGame.mutate(undefined, {
       onSuccess: (data: ChessGame) => {
-        console.log(data.id);
-        navigate(`/game/${data.id}`, { state: { board: data.board } });
+        navigate(`/game/${data.id}`, { state: { board: data.board, isOnline: false } });
       },
       onError: (error) => {
-        throw new Error("Error creating game: " + error.message);
+        toast.error("Error creating game");
+        console.error("Error creating game:", error);
       },
     });
   };
 
+  const createOnlineGame = async () => {
+    setOnlineGame(true);
+    console.log(conn);
+    
+    if (!conn) {
+      toast.error("Error connecting to online game server");
+      return;
+    }
+    
+    conn.on("AddPlayer", (data: ChessGame, isWhite: boolean, opponent: string) => {
+      const user = {
+        Name: localStorage.getItem("username"),
+        GameId: data.id,
+      }
+      conn.invoke("JoinGame", user);
+      localStorage.setItem("id", data.id);
+      navigate(`/game/${data.id}`, { state: { board: data.board, isOnline: true, isWhite: isWhite, opponent: opponent } });
+    });
+    
+      try {
+        await conn.invoke("FindMatch", localStorage.getItem("username"));
+        toast.success("Connected to online game server");
+      }
+      catch (error) {
+        console.error("Error connecting to online game server:", error);
+        toast.error("Error connecting to online game server");
+      }
+
+  }
   return (
     <Wrapper>
       <Heading>Welcome to Chess</Heading>
@@ -29,20 +65,28 @@ export default function Home() {
             <ActionButton onClick={() => navigate("/register")}>Register</ActionButton>
           </>
           :
+          <>
+          {onlineGame ? <WaitingRoom /> 
+          :
+          <>
+            <User>{localStorage.getItem("username")}</User>
             <ActionButton onClick={() => {
               localStorage.removeItem("token")
               navigate("/")
             }}>
               Logout
             </ActionButton>
-
+            <StartGameButton onClick={createPassAndPlayGame}>
+              <StartSpan>Pass and Play</StartSpan>  
+            </StartGameButton>
+            <StartGameButton onClick={createOnlineGame}>
+              <StartSpan>Play Online</StartSpan> 
+            </StartGameButton>
+          </>
+          }
+          </>
         }
-        {
-          localStorage.getItem("token") &&
-          <StartGameButton onClick={handleStartGame}>
-            <StartSpan>Play</StartSpan>
-          </StartGameButton>
-        }
+        
       </ButtonGroup>
     </Wrapper>
   );
@@ -77,6 +121,17 @@ const Wrapper = styled.div`
     z-index: 1;
   }
 `;
+const User = styled.div`
+  background: #ffffff80;
+  color: hsl(36, 5%, 18%);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+`;
+
 
 const Heading = styled.h1`
   font-size: 3.5rem;

@@ -28,7 +28,6 @@ public class Stalemate
                                 board[i, j] = null;
                                 if (!Check.IsCheck(color, board))
                                 {
-                                    System.Console.WriteLine($"{i}, {j} -> {endX}, {endY}");
                                     return false;
                                 }
                                 board[i, j] = board[endX, endY];
