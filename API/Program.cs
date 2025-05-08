@@ -10,7 +10,7 @@ builder.Services.AddApplicationService(builder.Configuration);
 
 var app = builder.Build();
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
-    .WithOrigins("http://localhost:3000", "https://localhost:3000"));
+    .WithOrigins("https://chess-356b38.netlify.app/"));
 
 app.UseAuthentication();
 app.UseAuthorization();
