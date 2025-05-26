@@ -15,7 +15,7 @@ export const SignalRProvider = ({ children }: Props) => {
     
     useEffect(() => {
         const conn = new HubConnectionBuilder()
-            .withUrl("http://localhost:5001/online")
+            .withUrl("https://0098-223-123-94-161.ngrok-free.app/online")
             .withAutomaticReconnect()
             .build();
 
