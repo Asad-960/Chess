@@ -6,6 +6,7 @@ import agent from "../lib/api/agent";
 export const useAccount = () => {
     const userLogin = useMutation({
         mutationFn: async (user: Login) => {
+            console.log('[DEBUG] API URL:', import.meta.env.VITE_API_URL);
             const response = await agent.post('/account/login', user, 
                 {
                     headers: {
