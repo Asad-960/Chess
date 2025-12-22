@@ -1,0 +1,46 @@
+name: Build and deploy ASP.Net Core app to Azure Web App
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x' # Make sure this matches your version!
+
+      - name: Build with dotnet
+        # We need to target the specific API project folder
+        run: dotnet build server/API/*.csproj --configuration Release
+
+      - name: dotnet publish
+        # Again, targeting the API folder for the publish command
+        
+        run: dotnet publish server/API/*.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+      
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'my-chess-api' # Must match your Azure App Name exactly
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
