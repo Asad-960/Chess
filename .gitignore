@@ -1,0 +1,83 @@
+####################################
+# General
+####################################
+.env
+.env.*
+*.log
+*.tmp
+*.swp
+*.suo
+*.user
+*.userosscache
+*.userprefs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+####################################
+# Node / React
+####################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# React build output
+build/
+dist/
+
+# Next.js / Vite / CRA
+.next/
+out/
+.vite/
+
+####################################
+# .NET
+####################################
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+platforms/
+artifacts/
+
+# Rider / VS
+.vs/
+*.csproj.user
+
+####################################
+# ASP.NET Core
+####################################
+appsettings.Development.json
+appsettings.Local.json
+
+####################################
+# NuGet
+####################################
+*.nupkg
+.nuget/
+packages/
+
+####################################
+# Publish output
+####################################
+publish/
+wwwroot/
+
+####################################
+# Test results
+####################################
+TestResults/
+coverage/
+coverage.xml
+
+####################################
+# OS / Misc
+####################################
+*.pid
+*.seed
+*.bak
