@@ -15,7 +15,7 @@ export const SignalRProvider = ({ children }: Props) => {
     
     useEffect(() => {
         const conn = new HubConnectionBuilder()
-            .withUrl("http://localhost:5001/online")
+            .withUrl("https://my-chess-api-e4c7dmgdhdh6dbd9.centralindia-01.azurewebsites.net/online")
             .withAutomaticReconnect()
             .build();
 
