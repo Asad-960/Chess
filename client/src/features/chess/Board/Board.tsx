@@ -159,21 +159,12 @@ const Spinner = styled.span`
 
 const Wrapper = styled.table`
   grid-area: Board;
-  margin: auto;
+  margin: auto; /* Center the table */
   position: relative;
-  height: 80%;
-  width: 75%;
-  flex: 1;
-  @media (max-width: 1200px)
-  {
-    height: 60%;
-    width: 60%;
-  }
-  @media (max-width: 800px)
-  {
-    height: 80%;
-    width: 80%;
-  }
+  /* flex: 1; */ /* flex: 1 might interfere with margin:auto depending on parent */
+  /* Remove fixed/percentage width and height to let content (cells) define size */
+  /* The total size will be implicitly min(80vh, 80vw) due to 8 cells of min(10vh, 10vw) each */
+  border-collapse: collapse; /* Ensures cells are packed tightly */
 `;
 
 const Draggable = styled.button`
@@ -193,7 +184,7 @@ const ColumnNums = styled.span`
   top: 0px;
   left: 0px;
   user-select: none;
-  
+  font-size: min(2vh, 2vw); /* Responsive font size */
   
 `;
 const RowAlphas = styled.span`
@@ -201,12 +192,16 @@ const RowAlphas = styled.span`
   bottom: 0px;
   right: 2px;
   user-select: none;
-
+  font-size: min(2vh, 2vw); /* Responsive font size */
 `;
 
 const Row = styled.tr`
-  height: 78.1px;
-  width: 80px;
+  /* height: 78.1px; // Old fixed height */
+  /* width: 80px; // Old fixed width */
+  /* Using viewport units for responsive sizing */
+  width: min(10vh, 10vw);
+  height: min(10vh, 10vw);
+  aspect-ratio: 1 / 1; /* Ensure cells are square */
 `;
   
 
@@ -232,8 +227,14 @@ const Column = styled.td`
   ${Row}:nth-of-type(8) &:nth-of-type(8){
     border-radius: 0 0 7px 0;  
   } 
-  height: 78.1px;
-  width: 80px;
+  /* height: 78.1px; // Old fixed height */
+  /* width: 80px; // Old fixed width */
+  /* Using viewport units for responsive sizing */
+  width: min(10vh, 10vw);
+  height: min(10vh, 10vw);
+  aspect-ratio: 1 / 1; /* Ensure cells are square */
+  /* Ensure content within the cell scales appropriately */
+  font-size: min(7vh, 7vw); /* Example: 70% of cell size, adjust as needed */
 `;
 
 

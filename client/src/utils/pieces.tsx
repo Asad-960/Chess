@@ -84,6 +84,9 @@ const pieces = {
 const Image = styled.img`
     transform: none;
     filter: none;
+    width: 80%; /* Scale with parent (Draggable -> Column) */
+    height: 80%; /* Scale with parent (Draggable -> Column) */
+    object-fit: contain; /* Maintain aspect ratio and fit within bounds */
 /*       
   @media (max-width: 800px)  
   {
